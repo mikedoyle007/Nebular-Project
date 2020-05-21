@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NbWindowService } from '@nebular/theme';
+import { FormComponent } from './components/form/form.component';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'nebular';
+
+  constructor(private windowService: NbWindowService) {}
+
+  onOpenWindow(): void {
+    this.windowService.open(FormComponent, { title: 'My Window' });
+  }
 }
